@@ -1,8 +1,5 @@
 /* Demo Layout Styles */
 
-* {
-    box-shadow: 0 0 0 1px pink;
-}
 body {
     font-family: system-ui, -apple-system, sans-serif;
     padding: 10px;
@@ -104,10 +101,4 @@ pre code.hljs {
 
 .code-line:hover {
     background-color: var(--panda-pri-200);
-}
-
-.preview-overlay {
-    background-color: #fff;
-    padding: 10px 20px;
-    box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
 }
