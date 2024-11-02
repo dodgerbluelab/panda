@@ -1,0 +1,479 @@
+:root {
+    /* Core Configuration */
+    --panda-scale: 16px;
+    --panda-clr-pri: dodgerblue;
+    --panda-clr-sec: mediumSpringGreen;
+    accent-color: var(--panda-clr-pri);
+
+    /* Fibonacci-inspired Scale with md as middle point */
+    --panda-scale-sm: calc(var(--panda-scale) * 0.618); /* ~2/3 of md */
+    --panda-scale-md: calc(var(--panda-scale));     /* base size */
+    --panda-scale-lg: calc(var(--panda-scale) * 1.618); /* golden ratio up from md */
+    --panda-scale-xl: calc(var(--panda-scale) * 2.618); /* golden ratio up from lg */
+
+    /* Primary Colors with white mix */
+    --panda-pri-50: color-mix(in srgb, var(--panda-clr-pri) 5%, white);
+    --panda-pri-100: color-mix(in srgb, var(--panda-clr-pri) 10%, white);
+    --panda-pri-200: color-mix(in srgb, var(--panda-clr-pri) 30%, white);
+    --panda-pri-300: color-mix(in srgb, var(--panda-clr-pri) 50%, white);
+    --panda-pri-400: color-mix(in srgb, var(--panda-clr-pri) 70%, white);
+    --panda-pri-500: var(--panda-clr-pri);
+    --panda-pri-600: color-mix(in srgb, var(--panda-clr-pri) 85%, black);
+    --panda-pri-700: color-mix(in srgb, var(--panda-clr-pri) 70%, black);
+    --panda-pri-800: color-mix(in srgb, var(--panda-clr-pri) 50%, black);
+    --panda-pri-900: color-mix(in srgb, var(--panda-clr-pri) 30%, black);
+
+    /* Secondary Colors with white mix */
+    --panda-sec-50: color-mix(in srgb, var(--panda-clr-sec) 5%, white);
+    --panda-sec-100: color-mix(in srgb, var(--panda-clr-sec) 10%, white);
+    --panda-sec-200: color-mix(in srgb, var(--panda-clr-sec) 30%, white);
+    --panda-sec-300: color-mix(in srgb, var(--panda-clr-sec) 50%, white);
+    --panda-sec-400: color-mix(in srgb, var(--panda-clr-sec) 70%, white);
+    --panda-sec-500: var(--panda-clr-sec);
+    --panda-sec-600: color-mix(in srgb, var(--panda-clr-sec) 85%, black);
+    --panda-sec-700: color-mix(in srgb, var(--panda-clr-sec) 70%, black);
+    --panda-sec-800: color-mix(in srgb, var(--panda-clr-sec) 50%, black);
+    --panda-sec-900: color-mix(in srgb, var(--panda-clr-sec) 30%, black);
+
+    /* Text colors for contrast */
+    --text-light: white;
+    --text-dark: #212529;
+}
+
+/* Resets */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove default margin and padding */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-size: var(--panda-scale-md);
+}
+
+/* Remove list styles on ul, ol elements */
+ul,
+ol {
+  padding-left: var(--panda-scale-md);
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Remove default anchor styles */
+a {
+  text-decoration: none;
+  color: var(--panda-clr-pri);
+}
+
+/* Make form elements more consistent */
+button,
+input,
+select,
+textarea {
+  background-color: transparent;
+}
+
+
+h1 {
+    font-size: var(--panda-scale-xl);
+    margin: calc(var(--panda-scale-xl) / 2) 0;
+}
+
+h2 {
+    font-size: var(--panda-scale-lg);
+    margin: calc(var(--panda-scale-lg) / 2) 0;
+}
+
+h3 {
+    font-size: var(--panda-scale-md);
+    margin: calc(var(--panda-scale-md) / 2) 0;
+}
+
+p {
+    margin: calc(var(--panda-scale-sm) / 2) 0;
+}
+
+
+
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--panda-scale-sm) var(--panda-scale-md);
+    font-size: clamp(12px, 2.5vw, var(--panda-scale-md));
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:where([data-panda~="primary"]) {
+        background-color: var(--panda-pri-500);
+        border-color: var(--panda-pri-500);
+        color: var(--text-light);
+
+        &:hover {
+            background-color: var(--panda-pri-600);
+            border-color: var(--panda-pri-600);
+        }
+    }
+
+    &:where([data-panda~="secondary"]) {
+        background-color: var(--panda-pri-100);
+        border-color: var(--panda-pri-100);
+        color: var(--panda-pri-500);
+
+        &:hover {
+            background-color: var(--panda-pri-200);
+            border-color: var(--panda-pri-200);
+        }
+    }
+
+    &:where([data-panda~="ghost"]) {
+        background-color: transparent;
+        border-color: var(--panda-pri-500);
+        color: var(--panda-pri-500);
+
+        &:hover {
+            background-color: var(--panda-pri-100);
+            border-color: var(--panda-pri-400);
+        }
+    }
+
+
+    &:disabled {
+        background-color: #eee;
+        border-color: #eee;
+        color: #999;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    &[data-panda~="badge"] {
+        padding: var(--panda-scale-sm) var(--panda-scale-sm);
+        font-size: var(--panda-scale-sm); 
+    }
+}
+
+/* Auto contrast for color boxes */
+[data-panda~="light"] {
+  color: var(--text-light);
+}
+
+[data-panda~="dark"] {
+  color: var(--text-dark);
+}
+
+
+
+label {
+    display: block;
+    margin-bottom: var(--panda-scale-sm);
+    font-weight: 400;
+    color: var(--text-dark);
+    font-size: var(--panda-scale-md); 
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: var(--panda-scale-sm);
+    border: 2px solid #ccc;
+    border-radius: calc(var(--panda-scale-sm) / 2);
+    font-size: calc(var(--panda-scale-s));
+    margin-bottom: var(--panda-scale-sm);
+    transition: border-color 0.2s ease;
+    caret-color: var(--panda-clr-pri);
+
+    &:focus {
+      outline: none;
+      border-color: var(--panda-pri-500);
+      box-shadow: 0 0 0 2px var(--panda-pri-200);
+  }
+
+}
+
+textarea {
+    min-height: calc(var(--panda-scale-xl));
+    resize: vertical;
+}
+
+
+
+input[type="range"] {
+    &:where([data-panda="swipe"]) {
+        height: 30px;
+        -webkit-appearance: none;
+        margin: 10px 0;
+        width: 100%;
+    
+      &:focus {
+        outline: none;
+      }
+    
+      &::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 28px;
+        cursor: pointer;
+        box-shadow: 0px 0px 0px #000000;
+        background-color: var(--panda-clr-pri);
+        border-radius: 28px;
+        border: 0px solid #000000;
+      }
+      &::-webkit-slider-thumb {
+        box-shadow: 0px 0px 1px #000000;
+        border: 0px solid #000000;
+        height: 24px;
+        width: 24px;
+        border-radius: 24px;
+        background-color: #FFFFFF;
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: 2px;
+      }
+      &:focus::-webkit-slider-runnable-track {
+        background: var(--panda-clr-pri);
+      }
+      &::-moz-range-track {
+        width: 100%;
+        height: 28px;
+        cursor: pointer;
+        box-shadow: 0px 0px 0px #000000;
+        background-color: var(--panda-clr-pri);
+        border-radius: 28px;
+        border: 0px solid #000000;
+      }
+      &::-moz-range-thumb {
+        box-shadow: 0px 0px 1px #000000;
+        border: 0px solid #000000;
+        height: 24px;
+        width: 24px;
+        border-radius: 24px;
+        background-color: #FFFFFF;
+        cursor: pointer;
+      }
+      &::-ms-track {
+        width: 100%;
+        height: 28px;
+        cursor: pointer;
+        background-color: transparent;
+        border-color: transparent;
+        color: transparent;
+      }
+      &::-ms-fill-lower {
+        background-color: var(--panda-clr-pri);
+        border: 0px solid #000000;
+        border-radius: 56px;
+        box-shadow: 0px 0px 0px #000000;
+      }
+      &::-ms-fill-upper {
+        background-color: var(--panda-clr-pri);
+        border: 0px solid #000000;
+        border-radius: 56px;
+        box-shadow: 0px 0px 0px #000000;
+      }
+      &::-ms-thumb {
+        margin-top: 1px;
+        box-shadow: 0px 0px 1px #000000;
+        border: 0px solid #000000;
+        height: 24px;
+        width: 24px;
+        border-radius: 24px;
+        background-color: #FFFFFF;
+        cursor: pointer;
+      }
+      &:focus::-ms-fill-lower {
+        background-color: var(--panda-clr-pri);
+      }
+      &:focus::-ms-fill-upper {
+        background-color: var(--panda-clr-pri);
+      }
+    }
+}
+
+[data-panda="tick"] {
+  --size: var(--panda-scale-md);
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  input {
+    position: relative;
+    margin-right: var(--panda-scale-sm);
+    appearance: none;
+    min-width: var(--size);
+    min-height: var(--size);
+    width: var(--size);
+    height: var(--size);
+    border: 2px solid #ccc;
+
+    &:checked {
+      background-color: var(--panda-clr-pri);
+      border-color: var(--panda-clr-pri);
+    }
+  }
+
+
+  &:has(input[type="checkbox"]:checked) {
+    &:before {
+      content: '';
+      position: absolute;
+      transform: translateY(-10%);
+      display: block;
+      z-index: 1;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round' class='css-i6dzq1'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+      background-size: contain;
+      width: var(--panda-scale-md);
+      aspect-ratio: 1 / 1;
+    }
+  }
+
+  input[type="radio"] {
+    border-radius: 50%;
+    width: calc(var(--size) + 2px);
+    height: calc(var(--size) + 2px);
+    margin-right: calc(var(--panda-scale-sm) - 2px);
+    &:checked {
+      background-color: #fff;
+      border-color: var(--panda-clr-pri);
+      box-shadow: inset 0 0 0 calc(var(--panda-scale-sm) / 3) var(--panda-clr-pri);
+    }
+  }
+
+
+}
+
+[data-panda="segmented"] {
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: max-content;
+  padding: 4px;
+  background-color: #eee;
+  border-radius: calc(var(--panda-scale-sm) / 2);
+  
+
+  
+  label {
+    padding: calc(var(--panda-scale-sm) / 2) calc(var(--panda-scale-sm));
+    background-color: #fff;
+    margin: 0;
+    font-weight: 400;
+    border-radius: calc(var(--panda-scale-sm) / 3);
+    cursor: pointer;
+
+    &:has(input:not(:checked)) {
+        background-color: transparent;
+        opacity: .7;
+    }
+}
+
+  input {
+    display: none;
+  }
+}
+
+[data-panda="toggle"] {
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--panda-scale-sm);
+  position: relative;
+
+  &:has(input:checked) {
+    &:before {
+      background-color: var(--panda-clr-pri);
+    }
+    &:after {
+      transform: translate(50%);
+      left: var(--panda-scale-md);
+    }
+  }
+
+
+  input {
+    display: none;
+  }
+
+
+  &:before {
+    content: '';
+    width: calc(var(--panda-scale-xl));
+    height: calc(var(--panda-scale-xl) / 2);
+    background-color: #ccc;
+    border-radius: 99px;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 2px;
+    width: calc(var(--panda-scale-md));
+    aspect-ratio: 1;
+    background-color: #fff;
+    border-radius: 50%;
+  }
+
+  &:before, &:after {
+    transition: .2s cubic-bezier(0.87, 0, 0.13, 1);
+  }
+}
+
+[data-panda="toggle"],
+[data-panda="tick"],
+[data-panda="segmented"] {
+  cursor: pointer;
+} 

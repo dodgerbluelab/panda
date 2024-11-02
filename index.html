@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>panda</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <script type="module" src="js/app.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+</head>
+<body>
+        <div class="container">
+            <h1>Welcome to panda ʕ•ᴥ•ʔ</h1>
+            <div class="intro">
+                <p>A new, basic, lazy as a panda, easy-to-use css library.</p>
+                <ol>
+                    <li>Import from: someurl dot com</li>
+                    <li>Simply overwrite the <strong>--panda-clr-pri</strong> and <strong>--panda-clr-sec</strong> in <strong>:root {}</strong> of your own css style sheet to set your primary and secondary UI color. </li>
+                    <li>If you're unhappy with the sizing of things, just overwrite <strong>--panda-scale</strong>.
+                </ol>
+                <p>Now the entire scaling and spacings system will look awesome as its based of the Fibonnaci sequenze. </p>
+                <p>To style buttons and inputs, panda uses <strong>data-panda</strong> to configure different styles of the markup. Have a look at the <a href="#buttons-section">buttons section</a>.</p>
+                </p>
+            </div>
+
+            <div class="demo-controls">
+                <h2>Design System Controls</h2>
+                <div class="color-inputs">
+                    <div class="control-group">
+                        <label>Primary Color</label>
+                        <input type="color" value="#0d6efd" oninput="document.documentElement.style.setProperty('--panda-clr-pri', this.value)">
+                    </div>
+                    <div class="control-group">
+                        <label>Secondary Color</label>
+                        <input type="color" value="#00FA9A" oninput="document.documentElement.style.setProperty('--panda-clr-sec', this.value)">
+                    </div>
+                    <div class="control-group">
+                        <label >Root Scale</label>
+                        <input type="range" value="1.2" step="0.05" min="1" max="2" 
+                               oninput="document.documentElement.style.setProperty('--panda-scale', `clamp(1rem, ${this.value}vw, 2rem)`)">
+                    </div>
+                </div>
+            </div>
+    
+            <div class="demo-section">
+                <h2>Primary Colors</h2>
+                <div class="color-grid">
+                    <div class="color-box" style="background: var(--panda-pri-50)">50</div>
+                    <div class="color-box" style="background: var(--panda-pri-100)">100</div>
+                    <div class="color-box" style="background: var(--panda-pri-200)">200</div>
+                    <div class="color-box" style="background: var(--panda-pri-300)">300</div>
+                    <div class="color-box" style="background: var(--panda-pri-400)">400</div>
+                    <div class="color-box" data-panda="light" style="background: var(--panda-pri-500)">500</div>
+                    <div class="color-box" data-panda="light" style="background: var(--panda-pri-600)">600</div>
+                    <div class="color-box" data-panda="light" style="background: var(--panda-pri-700)">700</div>
+                    <div class="color-box" data-panda="light" style="background: var(--panda-pri-800)">800</div>
+                    <div class="color-box" data-panda="light" style="background: var(--panda-pri-900)">900</div>
+                </div>
+    
+                <h2 >Secondary Colors</h2>
+                <div class="color-grid">
+                    <div class="color-box" style="background: var(--panda-sec-50)">50</div>
+                    <div class="color-box" style="background: var(--panda-sec-100)">100</div>
+                    <div class="color-box" style="background: var(--panda-sec-200)">200</div>
+                    <div class="color-box" style="background: var(--panda-sec-300)">300</div>
+                    <div class="color-box" style="background: var(--panda-sec-400)">400</div>
+                    <div class="color-box" data-panda="light" style="background: var(--panda-sec-500)">500</div>
+                    <div class="color-box" data-panda="light"  style="background: var(--panda-sec-600)">600</div>
+                    <div class="color-box" data-panda="light"  style="background: var(--panda-sec-700)">700</div>
+                    <div class="color-box" data-panda="light"  style="background: var(--panda-sec-800)">800</div>
+                    <div class="color-box" data-panda="light"  style="background: var(--panda-sec-900)">900</div>
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h1>Heading 1 - The quick brown fox jumps over the lazy dog</h1>
+                <h2>Heading 2 - The quick brown fox jumps over the lazy dog</h2>
+                <h3>Heading 3 - The quick brown fox jumps over the lazy dog</h3>
+                <div class="col-2">
+                    <p>The whimsical penguin danced through fields of rainbow spaghetti while solving quantum physics equations on a typewriter made of clouds. Flying teacups orchestrated a symphony of chocolate-covered algorithms as the wise old cactus taught philosophy to a group of time-traveling socks. The mathematical unicorn calculated the exact wavelength of laughter using only origami butterflies and disco balls. Philosophical sandwiches debated the meaning of interpretive dance with a committee of break-dancing calculators. The library of forgotten dreams cataloged its collection of crystallized thoughts while juggling parallel universes in mason jars.</p>
+                    <p>Digital daffodils designed databases of delightful daydreams while mechanical monarchs measured the momentum of melodic memories. Sophisticated snowflakes studied the socioeconomic status of stellar sandwich societies during sunset symposiums. Adventurous algorithms assembled arrays of artisanal atmospheres while botanical battleships browsed bibliographies of bubblegum beliefs. Teleporting teapots taught theoretical theology to teams of theatrical thermometers during Thursday's thunderous thoughts. Perplexed paradoxes practiced parallel parking with philosophical phoenixes in perpetually purple paradigms.</p>
+                </div>
+            </div>
+    
+            <div class="demo-section" id="buttons-section"> 
+                <h2>Buttons</h2>
+                <div class="code-preview">
+                    <button data-panda="primary">Primary Button</button>
+                    <button data-panda="secondary">Secondary Button</button>
+                    <button data-panda="ghost">Ghost Button</button>
+                    <button disabled>Disabled Button</button>
+                    <button data-panda="primary badge">Primary Button</button>
+                </div>
+
+                
+            </div>
+    
+            <div class="demo-section">
+                <h2>Form Elements</h2>
+                <div style="max-width: 700px;">
+                    <div class="input-group">
+                        <label>Text Input</label>
+                        <input type="text" placeholder="Enter text...">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Text Range [swipe]</label>
+                        <div class="code-preview">
+                            <input type="range" data-panda="swipe">
+                        </div>
+                    </div>
+
+                    <div class="input-group code-preview">
+                        <label data-panda="tick">
+                            <input type="checkbox">Checkbox
+                        </label>
+                    </div>
+
+                    <div class="input-group code-preview" >
+                        <label for="r1" data-panda="tick">
+                            <input type="radio" name="radio1" id="r1">Radio Button
+                        </label>
+                        <label for="r2" data-panda="tick">
+                            <input type="radio" name="radio1" id="r2">Radio Button
+                        </label>
+                    </div>
+
+                    <div class="input-group code-preview" data-panda="segmented" >
+                        <label for="s1">
+                            <input type="radio" checked name="seg1" id="s1">Option 1
+                        </label>
+                        <label for="s2">
+                            <input type="radio" name="seg1" id="s2">Option 2
+                        </label>
+                        <label for="s3">
+                            <input type="radio" name="seg1" id="s3">Option 3
+                        </label>
+                    </div>
+
+                    <label data-panda="toggle" class="code-preview" >
+                        <input type="checkbox">
+                        Toggle me!
+                    </label>
+                
+                    <div class="input-group">
+                        <label>Textarea</label>
+                        <textarea placeholder="Enter longer text..."></textarea>
+                    </div>
+            </div>
+        </div>
+    </body>
+</html>
