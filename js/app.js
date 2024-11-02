@@ -10,7 +10,7 @@ const previews = document.querySelectorAll('.code-preview');
 
 previews.forEach(preview => {
     // Get the current HTML content
-    const markup = preview.outerHTML.trim();
+    const markup = preview.innerHTML.trim();
     
     // Create the pre and code elements
     const pre = document.createElement('pre');
