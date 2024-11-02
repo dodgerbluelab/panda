@@ -1,4 +1,3 @@
-# panda
 # Welcome to panda ʕ•ᴥ•ʔ
 
 - Import from: someurl dot com
