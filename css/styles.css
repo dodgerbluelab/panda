@@ -208,16 +208,6 @@ button {
     }
 }
 
-/* Auto contrast for color boxes */
-[data-panda~="light"] {
-  color: var(--text-light);
-}
-
-[data-panda~="dark"] {
-  color: var(--text-dark);
-}
-
-
 
 label {
     display: block;
